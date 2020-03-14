@@ -16,8 +16,8 @@ const _getCallerFile = () => {
     Error.prepareStackTrace = originalFunc;
     if(callerfile){
         const callerfilePath = callerfile.split('/');
-        const pathLenght = callerfilePath.length;
-        callerfile = pathLenght > 2 ? `${callerfilePath[pathLenght - 2]}/${callerfilePath[pathLenght - 1]}`: callerfilePath[pathLenght - 1];
+        const pathLength = callerfilePath.length;
+        callerfile = pathLength > 2 ? `${callerfilePath[pathLength - 2]}/${callerfilePath[pathLength - 1]}`: callerfilePath[pathLength - 1];
     }
     return callerfile;
 };
