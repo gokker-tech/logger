@@ -1,0 +1,24 @@
+{
+  "name": "@grokker/logger",
+  "version": "1.0.0",
+  "description": "Nodejs prettified logger",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gokker-tech/logger.git"
+  },
+  "keywords": [
+    "node",
+    "logger",
+    "logger"
+  ],
+  "author": "Parvez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gokker-tech/logger/issues"
+  },
+  "homepage": "https://github.com/gokker-tech/logger#readme"
+}
