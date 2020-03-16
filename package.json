@@ -1,6 +1,6 @@
 {
   "name": "@grokker/logger",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Nodejs prettified logger",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gokker-tech/logger.git"
+    "url": "git+https://github.com/grokker-tech/logger.git"
   },
   "keywords": [
     "node",
