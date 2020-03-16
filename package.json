@@ -1,6 +1,6 @@
 {
   "name": "@grokker/logger",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Nodejs prettified logger",
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,7 @@
   "author": "Parvez",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gokker-tech/logger/issues"
+    "url": "https://github.com/grokker-tech/logger/issues"
   },
-  "homepage": "https://github.com/gokker-tech/logger#readme"
+  "homepage": "https://github.com/grokker-tech/logger#readme"
 }
