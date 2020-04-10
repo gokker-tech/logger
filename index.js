@@ -1,3 +1,9 @@
+const LEVELS = { 'ERROR': 1, 'WARN': 2, 'INFO': 3, 'DEBUG' : 4 };
+const ENV_LOG_LEVEL = process.env.LOGGER_LOG_LEVEL && LEVELS[process.env.LOGGER_LOG_LEVEL] ? process.env.LOGGER_LOG_LEVEL : 'INFO';
+const LOG_LEVEL = LEVELS[ENV_LOG_LEVEL];
+
+console.log('[ LOGGER ] Active Log Level : ', ENV_LOG_LEVEL);
+
 // Getting the caller function's file name
 const _getCallerFile = () => {
     const originalFunc = Error.prepareStackTrace;
@@ -23,7 +29,13 @@ const _getCallerFile = () => {
 };
 
 const info = (...args) => {
-    console.info(new Date().toISOString(), '\x1b[32m', `[ INFO  ]`, '\x1b[0m',  `--- [   ${_getCallerFile()}   ] : `, ...args);
+    const formattedArgs = [];
+    args.forEach(arg => {
+       formattedArgs.push(typeof arg === 'string' ? arg : JSON.stringify(arg));
+    });
+    if(LOG_LEVEL - 3 >= 0){
+        console.info(new Date().toISOString(), '\x1b[32m', `[ INFO  ]`, '\x1b[0m',  `--- [   ${_getCallerFile()}   ] : `, ...formattedArgs);
+    }
 };
 
 const error = (...args) => {
@@ -46,16 +58,30 @@ const error = (...args) => {
     }catch (e) {
         formattedArgs = args;
     }
-    console.info(new Date().toISOString(), '\x1b[31m', `[ ERROR ]`, '\x1b[0m', `--- [   ${_getCallerFile()}   ] : `, ...formattedArgs);
+    if(LOG_LEVEL - 1 >= 0) {
+        console.info(new Date().toISOString(), '\x1b[31m', `[ ERROR ]`, '\x1b[0m', `--- [   ${_getCallerFile()}   ] : `, ...formattedArgs);
+    }
 };
 
 const warn = (...args) => {
-    console.info(new Date().toISOString(), '\x1b[33m', `[ WARN  ]`, '\x1b[0m',`--- [   ${_getCallerFile()}   ] : `, ...args);
+    let formattedArgs = [];
+    args.forEach(arg => {
+        formattedArgs.push(typeof arg === 'string' ? arg : JSON.stringify(arg));
+    });
+    if(LOG_LEVEL - 2 >= 0){
+        console.info(new Date().toISOString(), '\x1b[33m', `[ WARN  ]`, '\x1b[0m',`--- [   ${_getCallerFile()}   ] : `, ...formattedArgs);
+    }
 };
 
+const debug = (...args) => {
+    if(LOG_LEVEL - 4 >= 0){
+        console.info(new Date().toISOString(), '\x1b[34m', `[ DEBUG ]`, '\x1b[0m',`--- [   ${_getCallerFile()}   ] : `, ...args);
+    }
+};
 
 module.exports = {
     info,
     error,
-    warn
+    warn,
+    debug
 };

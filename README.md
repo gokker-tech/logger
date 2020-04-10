@@ -4,26 +4,29 @@
 
 ## USAGE
 
-This logger has 3 different levels of logging in a specific order:
+This logger has 4 different levels of logging in a specific order:
 
-    'error', 'warn', 'info'
+    'ERROR', 'WARN', 'INFO' 'DEBUG'
     
-Each of these log levels has its own method on the logging instance. 
+Each of these log levels has its own method on the logging instance. Just set LOGGER_LOG_LEVEL in environment variable to set your log level. By default it is set to INFO
 
 Currently, this logger writes to STDOUT.
 
 ### Instantiation:
 
-    const logger = require('./index') // logs to STDOUT
+    const logger = require('@grokker/logger') // logs to STDOUT
 
 ### Usage:
 
-All of the logging methods take n arguments, which are joined by ' ' just like **console**, the error handler is designed to handle **axios** api call errors.
+    export LOGGER_LOG_LEVEL=DEBUG
+
+All of the logging methods take n arguments, which are joined by ' ' just like **console**, the error handler is designed to handle **axios** api call errors by default, it will stringify all json data for better visibility.
 The output contains some extra information such as timestamp, log level and name of the file from where the logger function was called.  
 
 
-    logger.info('Hello', 'world');
-    // => 2020-03-16T18:19:30.569Z  [ INFO  ]  --- [   logger/test.js   ] :  Hello world
+    logger.info('Hello', 'world', '-', {a : 'This is an object'});
+    // => 2020-03-16T18:19:30.569Z  [ INFO  ]  --- [   logger/test.js   ] :  Hello world - {"a":"This is an object"}
+    
     logger.warn('It\'s a warning');
     // => 2020-03-16T18:19:30.569Z  [ WARN  ]  --- [   logger/test.js   ] :  It's a warning
     
@@ -44,6 +47,10 @@ The output contains some extra information such as timestamp, log level and name
               at startup (internal/bootstrap/node.js:283:19)
               at bootstrapNodeJSCore (internal/bootstrap/node.js:622:3)
     ***/
+    
+    logger.info('Hello', 'world', '-', {a : 'This is an object'});
+    // => 2020-03-16T18:19:30.569Z  [ DEBUG ]  --- [   logger/test.js   ] :  this is object - { a: 'This is an object',
+                                                                                b: [ { c: 'This is array of objects' } ] }
     
 ### ISSUES:
 Feel free to fork it or raise a issue at 
