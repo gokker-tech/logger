@@ -1,6 +1,6 @@
 {
   "name": "@grokker/logger",
-  "version": "1.0.6",
+  "version": "2.0.0-beta.0",
   "description": "Nodejs prettified logger",
   "main": "index.js",
   "scripts": {
