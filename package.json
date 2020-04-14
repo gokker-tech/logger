@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/grokker-tech/logger/issues"
   },
-  "homepage": "https://github.com/grokker-tech/logger#readme"
+  "homepage": "https://github.com/grokker-tech/logger#readme",
+  "dependencies": {
+    "kafka-node": "^5.0.0"
+  }
 }

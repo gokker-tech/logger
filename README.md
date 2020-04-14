@@ -6,16 +6,17 @@
 
 This logger has 4 different levels of logging in a specific order:
 
-    'ERROR', 'WARN', 'INFO' 'DEBUG'
+    'ERROR', 'WARN', 'INFO', 'DEBUG'
     
-Each of these log levels has its own method on the logging instance. Just set LOGGER_LOG_LEVEL in environment variable to set your log level. By default it is set to INFO
+Each of these log levels has its own method on the logging instance. Just pass level while initializing to set your log level. By default it is set to INFO
 
 Currently, this logger writes to STDOUT.
 
 ### Instantiation:
 
-    const logger = require('@grokker/logger') // logs to STDOUT
-
+    const { CreateLogger } = require('@grokker/logger'); // logs to STDOUT
+    const logger = new CreateLogger();
+    
 ### Usage:
 
     export LOGGER_LOG_LEVEL=DEBUG
