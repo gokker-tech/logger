@@ -56,7 +56,7 @@ The output contains some extra information such as timestamp, log level and name
 ### ISSUES:
 Feel free to fork it or raise a issue at 
 
-    [https://github.com/parvez0/logger/issues] https://github.com/parvez0/logger/issues
+    https://github.com/parvez0/logger/issues
     
 ### LICENSE
 
